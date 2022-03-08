@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  web:
+    container_name: webserver-nginx
+    image: nginx:1.20.1
+    ports: 
+      - "8000:80"
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./app:/app
+  
+  php:
+    container_name: webserver-php
+    build:
+      context: ./etc/php
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+    env_file: 
+      - .env
