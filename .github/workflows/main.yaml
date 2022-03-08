@@ -24,9 +24,7 @@ jobs:
         php composer.phar install --no-dev
 
         # Clean up.
-        rm composer.phar
-
-        EOF     
+        rm composer.phar  
         
     
     - name: 📂 Sync files
