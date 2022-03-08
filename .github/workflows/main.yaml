@@ -12,20 +12,7 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
-      
-    - name: Install dependencies
-      uses: actions/checkout@v2
-      run: |
-        DEPLOYMENT_DIRECTORY="app"
-        # Download the Composer installer & execute it.
-        curl -s https://getcomposer.org/installer | php
-
-        # Install production dependencies.
-        php composer.phar install --no-dev
-
-        # Clean up.
-        rm composer.phar  
-        
+            
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
